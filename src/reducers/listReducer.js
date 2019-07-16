@@ -66,7 +66,6 @@ export default (state = { ...INITIAL_STATE }, action) => {
     actionTypes.MOVE_DOWN_LISTITEM, 
   ]
   if (arrActions.includes(action.type)) {
-    console.log(action.idList);
     doListAction(action, list, action.idList)
   }
 
