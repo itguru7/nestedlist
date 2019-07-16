@@ -29,14 +29,14 @@ function doListAction(action, item, idList) {
 
       case actionTypes.MOVE_UP_LISTITEM:
         childItem = item.sublist[action.itemIndex]
-        item.splice(action.itemIndex, 1)
-        item.splice(action.itemIndex-1, 0, childItem)
+        item.sublist.splice(action.itemIndex, 1)
+        item.sublist.splice(action.itemIndex-1, 0, childItem)
         break;
 
       case actionTypes.MOVE_DOWN_LISTITEM:
         childItem = item.sublist[action.itemIndex]
-        item.splice(action.itemIndex, 1)
-        item.splice(action.itemIndex+1, 0, childItem)
+        item.sublist.splice(action.itemIndex, 1)
+        item.sublist.splice(action.itemIndex+1, 0, childItem)
         break;
 
       default:

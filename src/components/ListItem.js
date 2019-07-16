@@ -2,15 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux'
 import * as listActions from '../actions';
 
-class ListItem extends React.Component {
+class _ListItem extends React.Component {
   state = { content: '' }
 
   addSublist = () => {
     const { itemId } = this.props
 
-    console.log(itemId)
-
-    console.log(this.props.addSublist);
     this.props.addSublist(itemId)
   }
 
@@ -31,28 +28,27 @@ class ListItem extends React.Component {
   removeListitem = () => {
     const { itemIndex, itemId } = this.props
 
-    let parentId = itemId
-    parentId.pop()
+    itemId.pop();
 
-    this.props.removeListitem(parentId, itemIndex)
+    this.props.removeListitem(itemId, itemIndex)
+    this.setState({ content: '' })
   }
 
   moveupListitem = () => {
     const { itemIndex, itemId } = this.props
 
-    let parentId = itemId
-    parentId.pop()
+    itemId.pop();
 
-    this.props.moveupListitem(parentId, itemIndex)
+    this.props.moveupListitem(itemId, itemIndex)
+    this.setState({ content: '' })
   }
 
   movedownListitem = () => {
     const { itemIndex, itemId } = this.props
 
-    let parentId = itemId
-    parentId.pop()
+    itemId.pop();
 
-    this.props.movedownListitem(parentId, itemIndex)
+    this.props.movedownListitem(itemId, itemIndex)
   }
 
   render() {
@@ -63,18 +59,20 @@ class ListItem extends React.Component {
 
     return (
       <li>
-        <span>{item.content}</span>
+        <span>{item.content}&nbsp;</span>
           { itemIndex > 0 &&
             <button onClick={this.moveupListitem}>&uarr;</button>
           }
           { itemIndex < parentList.sublist.length - 1 &&
             <button onClick={this.movedownListitem}>&darr;</button>
           }
+          &nbsp;
           { item.sub ?
             <button onClick={this.removeSublist}>Remove Sublist</button>
           :
             <button onClick={this.addSublist}>Add Sublist</button>
           }
+          &nbsp;
           <button onClick={this.removeListitem}>Remove</button>
           { item.sub &&
             <ul>
@@ -94,6 +92,7 @@ class ListItem extends React.Component {
                     }
                   }}
                 />
+                &nbsp;
                 <button
                   onClick={this.addListitem}
                 >Add</button>
@@ -105,4 +104,6 @@ class ListItem extends React.Component {
   }
 }
 
-export default connect(null, listActions)(ListItem)
+const ListItem = connect(null, listActions)(_ListItem)
+
+export default ListItem

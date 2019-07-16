@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as listActions from '../actions';
 import ListItem from './ListItem';
 
-class List extends React.Component {
+class _List extends React.Component {
   state = { content: '' }
 
   addListitem = () => {
@@ -35,6 +35,7 @@ class List extends React.Component {
               }
             }}
           />
+          &nbsp;
           <button
             onClick={this.addListitem}
           >Add</button>
@@ -50,4 +51,6 @@ const mapStateToProps = ({ list }) => {
   }
 }
 
-export default connect(mapStateToProps, listActions)(List)
+const List = connect(mapStateToProps, listActions)(_List)
+
+export default List
