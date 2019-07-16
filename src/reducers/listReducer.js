@@ -55,8 +55,7 @@ const INITIAL_STATE = {
 }
 
 export default (state = { ...INITIAL_STATE }, action) => {
-  let list = JSON.parse(JSON.stringify(state.list));
-
+  let list = JSON.parse(JSON.stringify(state.list))
   let arrActions = [
     actionTypes.ADD_SUBLIST, 
     actionTypes.REMOVE_SUBLIST, 
@@ -65,6 +64,7 @@ export default (state = { ...INITIAL_STATE }, action) => {
     actionTypes.MOVE_UP_LISTITEM, 
     actionTypes.MOVE_DOWN_LISTITEM, 
   ]
+
   if (arrActions.includes(action.type)) {
     doListAction(action, list, action.idList)
   }

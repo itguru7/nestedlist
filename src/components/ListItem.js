@@ -28,7 +28,7 @@ class _ListItem extends React.Component {
   removeListitem = () => {
     const { itemIndex, itemId } = this.props
 
-    itemId.pop();
+    itemId.pop()
 
     this.props.removeListitem(itemId, itemIndex)
     this.setState({ content: '' })
@@ -37,7 +37,7 @@ class _ListItem extends React.Component {
   moveupListitem = () => {
     const { itemIndex, itemId } = this.props
 
-    itemId.pop();
+    itemId.pop()
 
     this.props.moveupListitem(itemId, itemIndex)
     this.setState({ content: '' })
@@ -46,7 +46,7 @@ class _ListItem extends React.Component {
   movedownListitem = () => {
     const { itemIndex, itemId } = this.props
 
-    itemId.pop();
+    itemId.pop()
 
     this.props.movedownListitem(itemId, itemIndex)
   }

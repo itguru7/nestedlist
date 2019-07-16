@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import reduxThunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import * as serviceWorker from './serviceWorker';
-// import './index.css';
 
 import List from './components/List';
 import rootReducer from './reducers';
@@ -18,4 +17,4 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-serviceWorker.register();
+serviceWorker.register()
