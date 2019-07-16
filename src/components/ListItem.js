@@ -21,8 +21,10 @@ class _ListItem extends React.Component {
     const { itemId } = this.props
     const { content } = this.state
 
-    this.props.addListitem(itemId, content)
-    this.setState({ content: '' })
+    if (content.length > 0) {
+      this.props.addListitem(itemId, content)
+      this.setState({ content: '' })
+    }
   }
 
   removeListitem = () => {

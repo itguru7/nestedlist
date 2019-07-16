@@ -9,8 +9,10 @@ class _List extends React.Component {
   addListitem = () => {
     const { content } = this.state
 
-    this.props.addListitem([], content)
-    this.setState({ content: '' })
+    if (content.length > 0) {
+      this.props.addListitem([], content)
+      this.setState({ content: '' })
+    }
   }
 
   render() {
